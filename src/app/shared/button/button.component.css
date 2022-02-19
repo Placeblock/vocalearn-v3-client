@@ -1,0 +1,9 @@
+:host {
+    line-height: 10px;
+    color: #1A1A1D;
+    display: inline-block;
+    margin: 5px;
+    padding: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

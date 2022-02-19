@@ -1,0 +1,14 @@
+<p class="header2">Wilkommen bei</p>
+<p class="header">Vocalearn</p>
+<form [formGroup]="loginForm">
+    <div class="form-input">
+        <input id="login-name" type="email" placeholder="Email">
+    </div>
+    <div class="form-input">
+        <input id="login-password" [type]="isShowingPassword ? 'text' : 'password'" placeholder="Passwort">       
+        <fa-icon [icon]="isShowingPassword ? faEyeSlash : faEye" (click)="toggleShowPassword()" [transform]="isShowingPassword ? undefined : 'left-1'"></fa-icon>
+        <fa-icon [icon]="faQuestionCircle" style="margin-left: 5px;" routerLink="../reset"></fa-icon>
+    </div>
+    <p routerLink="../register" style="text-align: start; width: 100%; cursor: pointer; margin-top: 10px; user-select:none;">Keinen Account? <span style="color: rgb(141, 32, 32); font-weight: 800;">Registrieren!</span></p>
+    <input type="submit" value="Anmelden" (click)="submit()">
+</form>

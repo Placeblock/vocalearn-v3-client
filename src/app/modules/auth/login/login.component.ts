@@ -24,7 +24,6 @@ export class LoginComponent {
     this.isShowingPassword = !this.isShowingPassword;
   }
 
-  submit() {
-
+  onSubmit() {
   }
 }

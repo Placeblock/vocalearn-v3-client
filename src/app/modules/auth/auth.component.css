@@ -21,6 +21,15 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    overflow: hidden;
     position: relative;
+}
+
+#backtohome {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+#backtohome:hover {
+    cursor: pointer;
 }

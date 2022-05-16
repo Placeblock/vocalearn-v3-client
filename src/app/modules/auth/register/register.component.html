@@ -1,18 +1,27 @@
 <p class="header2">Wilkommen bei</p>
 <p class="header">Vocalearn</p>
-<form action="">
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="form-input">
-        <input id="login-name" type="email" placeholder="Email">
+        <input id="register-email" type="email" placeholder="Email" formControlName="email">
+    </div>
+    <div class="form-validator" *ngIf="(registerForm.get('email')?.dirty || submitted) && registerForm.get('email')?.invalid">
+        <p *ngIf="registerForm.get('email')?.errors?.['required']">Du musst eine Email angeben!</p>
+        <p *ngIf="registerForm.get('email')?.errors?.['email']">Das ist keine Valide Email!</p>
     </div>
     <div class="form-input">
-        <input id="login-name" type="text" placeholder="Spitzname">
+        <input id="register-name" type="text" placeholder="Name" formControlName="name">
+    </div>
+    <div class="form-validator" *ngIf="(registerForm.get('name')?.dirty || submitted) && registerForm.get('name')?.invalid">
+        <p *ngIf="registerForm.get('name')?.errors?.['required']">Du musst einen Namen angeben!</p>
+        <p *ngIf="registerForm.get('name')?.errors?.['minlength']">Dein Name ist zu kurz</p>
+        <p *ngIf="registerForm.get('name')?.errors?.['maxlength']">Dein Name ist zu lang</p>
     </div>
     <div class="form-input">
-        <input id="login-password" [type]="isShowingPassword ? 'text' : 'password'" placeholder="Passwort">       
-        <!--<fa-icon [icon]="isShowingPassword ? faEyeSlash : faEye" (click)="toggleShowPassword()" [transform]="isShowingPassword ? undefined : 'left-1'"></fa-icon>-->
+        <input id="register-password" [type]="isShowingPassword ? 'text' : 'password'" placeholder="Passwort" formControlName="password">       
+        <fa-icon [icon]="isShowingPassword ? faEyeSlash : faEye" (click)="toggleShowPassword()" [transform]="isShowingPassword ? undefined : 'left-1'"></fa-icon>
     </div>
     <div class="form-input">
-        <input id="login-password" [type]="isShowingPassword ? 'text' : 'password'" placeholder="Passwort Wiederholen">       
+        <input id="register-rpassword" [type]="isShowingPassword ? 'text' : 'password'" placeholder="Passwort Wiederholen" formControlName="rpassword">       
     </div>
     <p routerLink="../login" style="text-align: start; width: 100%; cursor: pointer; margin-top: 10px; user-select:none;">Bereits einen Account? <span style="color: rgb(141, 32, 32); font-weight: 800;">Anmelden!</span></p>
     <input type="submit" value="Registrieren">

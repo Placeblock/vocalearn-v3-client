@@ -9,6 +9,7 @@ body, html {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 input {
@@ -22,9 +23,6 @@ input:focus {
     outline: none;
 }
 
-
-
-
 form {
     display: flex;
     flex-direction: column;
@@ -36,6 +34,7 @@ form {
 }
 
 .form-input {
+    position: relative;
     border: 1px solid black;
     border-radius: 100px;
     min-height: 35px;
@@ -48,6 +47,11 @@ form {
     outline:solid rgba(58, 0, 0,0.5);
     outline-width: 0px;
     transition: outline-width 0.1s ease-in-out;
+    background-color: white;
+}
+
+.form-validator {
+    width: 100%;
 }
 
 .form-input input {
